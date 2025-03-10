@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numerical Analysis of PDEs, Optimization and UQ: A MAC-MIGS Summer School</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Numerical Analysis of PDEs, Optimization and UQ:<br>A MAC-MIGS Summer School</h1>
+      <h2>University of Edinburgh, June 17th to 20th 2025</h2>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <!-- Menu Toggle for Mobile -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="summer_school.html">Summer School</a></li>
+      <li><a href="register.html">Registration</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="information.html">Practical Information</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Venue Section -->
+  <section id="sec" class="section">
+    <div class="container">
+      <h2>Venue</h2>
+
+      <p>Room numbers TBC</p>
+      <p>Room for catering TBC</p>
+  
+   </div>
+  </section>
+
+  <!-- Arrive Section -->
+  <section id="sec" class="section">
+    <div class="container">
+      <h2 class="section-title">How to get to James Clerk Maxwell Building</h2>
+
+      <div class="content-with-map">
+        <div class="text-content">
+  
+        <p>The event will take place at JCMB on the King's Buildings campus.</p>
+        <p>The address is: <br> JCMB <br> Peter Guthrie Tait Road <br> Edinburgh EH9 3FD <br> United Kingdom</p>
+        </div>
+        
+        <div id="map" style="width: 50%; height: 250px; border-radius: 10px;"></div>
+      </div>
+        
+      <p>To get to Edinburgh:
+        <ul>
+          <li>By plane: Edinburgh has an international airport that is connected to the city centre by bus (AirLink) and tram.</li>
+          <li>By train: The closest train station is Edinburgh Waverley in the city centre. From there, you can reach the campus by bus.</li>
+          <li>By car: The campus lies north of the Edinburgh Bypass (A720). Take the exit onto A701 and follow until Mayfield Road. Turn left and follow until turning left again into Max Born Crescent. Follow until Peter Guthrie Tait Road.</li>
+        </ul>
+      See also <a href="https://transport.ed.ac.uk/travelling-here/kings-buildings" target="_blank">Travelling to the King's Buildings</a> for transport information and a campus map.
+      </p>
+    </div>
+  </section>
+  
+ 
+  <!-- Accomodation Section -->
+  <section id="sec" class="section">
+    <div class="container">
+      <h2>Accommodation and places to visit</h2>
+
+      <b>Accommodation</b>
+      <p>We recommend that you try to find accommodation as soon as possible because the Royal Highland Show will take place from June 19th to June 22nd, making it harder to find accommodation. We will be posting some accommodation suggestions here later on.</p>      
+      
+      <b>Meals</b>
+      <p>There are plenty of great options for dinner in the area, including:<br>Wee Greek Kitchen, Haldi, Salisbury Arms, Old Bell Inn, Matto Pizza, Korean BBQ, Verdo, Sofia's Lounge, Brass Monkey, and Leslie's Bar.
+      </p>
+      
+      <b>Place to visit in Edinburgh</b>
+      <p>On Wednesday afternoon, we plan to go for a small tour of Edinburgh. In case you can't join/want to explore Edinburgh on your own, here are some suggestions:
+      </p>
+      <ul>
+      <li>The Old Town features the Royal Mile with Edinburgh Castle on one end and Holyrood Palace on the other.</li>
+      <li>Located right next to the Old Town, Arthur's Seat in Holyrood Park offers great views of Edinburgh.</li>
+      <li>Blackford Hill is part of a lovely park that is great for walks and located just west of the campus.</li>
+      <li>Craigmillar Castle is the ruins of a castle that used to be outside of Edinburgh and is now conveniently close.</li>
+      <li>Edinburgh has lots of museums, many of which are free. Highlights include the National Museum of Scotland (similar to the British Museum), Surgeons' Hall (bizarre medical exposition), and the Museum of Edinburgh (history of Edinburgh).</li>
+      </ul>
+  
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; Numerical Analysis of PDEs, Optimization and UQ: A MAC-MIGS Summer School. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+<script>
+  var map = L.map('map').setView([55.9216819,-3.1736698], 11.5);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  L.marker([55.9216819,-3.1736698]).addTo(map)
+      .bindPopup('JCMB');
+</script>
+
+</html>

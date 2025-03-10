@@ -1,0 +1,455 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9; /* Light background for the page */
+  justify-content: center;  /* Centers horizontally */
+  align-items: center;      /* Centers vertically */
+}
+
+section {
+  margin-bottom: 3rem; /* Add space between sections */
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  background-image: url('./images/edinburgh.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 6rem 2rem; /* More padding for a prominent hero section */
+  text-align: center;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Darker overlay for better readability */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 3rem; /* Larger, more impactful title */
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Navigation Bar (Below Hero) */
+.navbar {
+  background: #041e42;
+  padding: 0.5rem 2rem; /* Match title padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Ensures it aligns with other content */
+  margin: 0 auto; /* Centers the navbar */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Navbar List 
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem; 
+  list-style: none;
+}
+*/
+
+/* Logo 
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}*/
+
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 0.8;
+}
+
+
+/* Mobile Menu */
+.menu-toggle {
+  display: none;
+
+}
+
+/* Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  /* Hide nav links by default */
+  .navbar, .hero, .footer {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 3.25rem;
+    left: 0;
+    width: 100vw;
+    background: #004aad;
+    text-align: center;
+    padding: 1rem 0;
+    z-index: 100;
+  }
+
+  /* Show menu icon */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Show menu when checkbox is checked */
+  #menu-toggle:checked + .menu-icon + .nav-links {
+    display: flex;
+  }
+}
+
+
+/* Container for all sections */
+.container {
+  max-width: 1200px; /* Adjust width as needed */
+  margin: 0 auto;
+  padding: 0 2rem; /* Adds padding on left and right */
+}
+
+#sec h2 {
+  color: #041e42;
+  text-align: left;
+  padding-left: 0rem;
+}
+
+
+/* Organizers Section */
+.organizers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased min width */
+  gap: 2rem; /* Added more space between items */
+  justify-content: center; /* Centers items in the container */
+}
+
+.organizer {
+  width: 100%;
+  max-width: 220px; /* Slightly reduced max width */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1.5rem; /* Increased padding for better spacing */
+  text-align: center;
+  background: white; /* Ensures the background is clean */
+}
+
+.organizer img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.organizer p {
+  font-size: 0.85rem; /* Slightly increased text size for readability */
+  color: #555;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .organizers {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Reduce min width for smaller screens */
+  }
+}
+
+
+/* Sponsors Section */
+.sponsors {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.0rem; /* Reduced gap between items */
+  justify-content: center; /* Ensures the grid is centered */
+}
+
+#sponsor h2 {
+  color: #041e42;
+  text-align: left;
+  padding-left: 2rem; /* Adds a left padding of 2rem */
+}
+
+.sponsor {
+  display: flex;
+  flex-direction: column; /* This makes the image and text stack vertically */
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem; /* Reduce padding */
+  text-align: center;
+}
+
+.sponsor img {
+  width: 150px; /* Adjust the image size */
+  height: 150px; /* Maintain the same height */
+  object-fit: contain; /* Maintain the aspect ratio without distortion */
+  margin-bottom: 0.2rem; /* Add space between the image and the title */
+}
+
+.sponsor h3 {
+  margin: 0; /* Remove any default margin */
+}
+
+
+/* School Section */
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between text and image */
+  justify-content: space-between; /* Keeps text on the left, image on the right */
+}
+
+.content-with-map {
+  display: flex;
+  align-items: left;
+  gap: 40px; /* Space between text and image */
+  justify-content: space-between; /* Keeps text on the left, image on the right */
+}
+
+.text-content {
+  flex: 1; /* Makes the text take up available space */
+  max-width: 600px; /* Adjust width for readability */
+}
+
+.building {
+  flex: 1; /* Makes the image take up available space */
+  display: flex;
+  justify-content: flex-end; /* Pushes the image to the right */
+}
+
+.building img {
+  max-width: 75%; /* Makes image responsive */
+  height: auto;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content {
+    text-align: left;
+  }
+
+  .building {
+    justify-content: center; /* Centers the image on smaller screens */
+  }
+}
+
+
+/* Speakers Section */
+.speakers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.speaker {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.speaker:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.speaker img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.speaker h3 {
+  margin: 0.5rem 0;
+  color: #004aad;
+}
+
+.speaker p {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+/* Schedule Section */
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+  text-align: left;
+}
+
+.schedule-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.schedule-table th,
+.schedule-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.schedule-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.schedule-table td[colspan] {
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .schedule-list {
+    width: 100%;
+    max-width: none;
+  }
+
+  .schedule-table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .schedule-table th,
+  .schedule-table td {
+    padding: 4px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Arrive Section */
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between text and image */
+  justify-content: space-between; /* Keeps text on the left, image on the right */
+}
+
+.text-content {
+  flex: 1; /* Makes the text take up available space */
+  max-width: 600px; /* Adjust width for readability */
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content {
+    text-align: left;
+  }
+
+  .building {
+    justify-content: center; /* Centers the image on smaller screens */
+  }
+}
+
+
+/* accommodation Section */
+.btn {
+  padding: 0.75rem 2.5rem; /* Bigger button */
+  font-size: 1rem; /* Larger text */
+  background: #004aad;
+  color: #fff;
+  border: none;
+  border-radius: 8px; /* Slightly rounded corners */
+  cursor: pointer;
+  text-decoration: none; /* Remove underline */
+  display: inline-block;
+  text-align: center;
+}
+
+.btn:hover {
+  background: #00367a;
+}
+
+/* Center the button */
+.btn-container {
+  text-align: center;
+  margin-top: 20px; /* Add spacing if needed */
+}
+
+
+/* Footer */
+.footer {
+  background: #041e42;
+  color: white;
+  text-align: center;
+  padding: 0.1rem 0;
+  font-size: 0.9rem;
+}

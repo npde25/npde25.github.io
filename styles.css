@@ -219,6 +219,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1.0rem; /* Reduced gap between items */
   justify-content: center; /* Ensures the grid is centered */
+  align-items: center; /* Ensures contents are centered vertically */
 }
 
 #sponsor h2 {

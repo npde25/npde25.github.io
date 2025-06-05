@@ -271,7 +271,6 @@ section {
 
 .building {
   flex: 1; /* Makes the image take up available space */
-  display: flex;
   justify-content: flex-end; /* Pushes the image to the right */
 }
 

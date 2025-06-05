@@ -77,6 +77,10 @@
         <p>The address is: <br> King's Buildings <br> Mayfield Road <br> Edinburgh EH9 3FD <br> United Kingdom</p>
         </div>
         
+        <div class="building">
+          <img src="./images/map_small.png" alt="Route between JCMB and Joseph Black">
+        </div>
+        
         <div id="map" style="width: 50%; height: 250px; border-radius: 10px;"></div>
       </div>
         
@@ -156,7 +160,7 @@
   L.Routing.control({
     waypoints: [
       L.latLng(55.921875, -3.17425),
-      L.latLng(55.9235392, -3.176165)
+      L.latLng(55.924, -3.176165)
     ],
     show: false,
     router: L.Routing.graphHopper('6e9c4e7d-8d3d-4894-bc53-454ac1ff13d1', {urlParameters: {vehicle: 'foot'}}),

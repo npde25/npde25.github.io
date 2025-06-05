@@ -6,7 +6,12 @@
   <title>Numerical Analysis of PDEs, Optimization and UQ: A MAC-MIGS Summer School</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="lrm-graphhopper.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -69,7 +74,7 @@
         <div class="text-content">
   
         <p>The event will take place at Joseph Black Building and JCMB on the King's Buildings campus.</p>
-        <p>The address is: <br> JCMB <br> Peter Guthrie Tait Road <br> Edinburgh EH9 3FD <br> United Kingdom</p>
+        <p>The address is: <br> King's Buildings <br> Mayfield Road <br> Edinburgh EH9 3FD <br> United Kingdom</p>
         </div>
         
         <div id="map" style="width: 50%; height: 250px; border-radius: 10px;"></div>
@@ -136,7 +141,7 @@
 </body>
 
 <script>
-  var map = L.map('map').setView([55.9216819,-3.1736698], 11.5);
+  var map = L.map('map').setView([55.9235392,-3.175], 15);
 
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -144,6 +149,20 @@
 
   L.marker([55.9216819,-3.1736698]).addTo(map)
       .bindPopup('JCMB');
+
+  L.marker([55.9235392,-3.176165]).addTo(map)
+      .bindPopup('Joseph Black Building');
+  
+  L.Routing.control({
+    waypoints: [
+      L.latLng(55.921875, -3.17425),
+      L.latLng(55.9235392, -3.176165)
+    ],
+    show: false,
+    router: L.Routing.graphHopper('6e9c4e7d-8d3d-4894-bc53-454ac1ff13d1', {urlParameters: {vehicle: 'foot'}}),
+    createMarker: function() { return null; }
+  }).addTo(map);
+
 </script>
 
 </html>

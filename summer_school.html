@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Numerical Analysis of PDEs, Optimization and UQ: A MAC-MIGS Summer School</title>
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Map code -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+  <script src="lrm-graphhopper.js"></script>
+
+  
   <style>
     .italics {
       font-style: italic;
@@ -35,7 +46,38 @@
     </ul>
   </nav>
 
-  <!-- School Section -->
+<!-- Venue Section -->
+  <section id="sec" class="section">
+    <div class="container">
+
+    <h2>Overview</h2>
+    
+    <p>
+      NPDE25 will take place June 17–20, 2025, on the King's Buildings Campus of the University of Edinburgh.
+      It will consist of a series of lectures delivered by experts in the fields of high-dimensional PDEs, scientific machine learning, PDE-constrained optimization, and data assimilation.
+    </p>
+    <p>
+      Lunch will be provided each day of the summer school. A session of poster presentations will take place on Wednesday, and short research talks will be organized for Thursday afternoon.
+    </p>
+    
+    <h2>Venue</h2>
+    <p style="color: blue; font-weight: bold;">Lecture Location: Joseph Black Building, Theatre 100.</p>
+    <p style="color: blue; font-weight: bold;">Lunch & Coffee Break Location: James Clerk Maxwell Building, Magnet Cafe.</p>
+    <p style="color: green; font-weight: bold;">Registration will begin at 10:15 a.m. on Tuesday, June 17, just outside Lecture Theatre LT100 in the Joseph Black Building.</p>
+    
+    <h2>Conference Dinner</h2>
+    <p>
+      The Conference Dinner will be held at The Rabbit Hole. You can view its location 
+      <a href="https://www.google.com/maps/place/The+Rabbit+Hole/@55.9382519,-3.1924764,17z/data=!3m1!4b1!4m6!3m5!1s0x4887c777c3a94231:0x99d72121e5523390!8m2!3d55.9382519!4d-3.1924764!16s%2Fg%2F11bwd5ckzk?entry=ttu&g_ep=EgoyMDI1MDUxMi4wIKXMDSoASAFQAw%3D%3D" target="_blank">HERE</a>.
+    </p>
+    <p>
+      We anticipate the set menu will cost approximately £30–£35 per person, excluding drinks and gratuity.
+    </p>
+      
+   </div>
+  </section>
+
+<!--     <!-- School Section -->
   <section id="sec" class="section">
     <div class="container">
       <h2 class="section-title">Overview</h2> <!-- Title aligned left -->
@@ -55,7 +97,28 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+
+  <!-- Arrive Section -->
+  <section id="sec" class="section">
+    <div class="container">
+      <h2 class="section-title">How to get to the King's Buildings Campus</h2>
+
+      <div class="content-with-map">
+        <div class="text-content">
+  
+        <p>The event will take place at Joseph Black Building and JCMB on the King's Buildings campus.</p>
+        <p>The address is: <br> King's Buildings <br> Mayfield Road <br> Edinburgh EH9 3FD <br> United Kingdom</p>
+        </div>
+        
+        <div class="building">
+          <img src="./images/map_small.png" alt="Route between JCMB and Joseph Black">
+        </div>
+        
+        <div id="map" style="width: 50%; height: 250px; border-radius: 10px;"></div>
+      </div>
+   </section>
+
 
   <!-- Speakers Section -->
   <section id="sec" class="section">
@@ -311,4 +374,30 @@
   </footer>
 
 </body>
+
+<script>
+  var map = L.map('map').setView([55.9235392,-3.175], 15);
+
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+  L.marker([55.9216819,-3.1736698]).addTo(map)
+      .bindPopup('JCMB');
+
+  L.marker([55.9235392,-3.176165]).addTo(map)
+      .bindPopup('Joseph Black Building');
+  
+  L.Routing.control({
+    waypoints: [
+      L.latLng(55.921875, -3.17425),
+      L.latLng(55.924, -3.176165)
+    ],
+    show: false,
+    router: L.Routing.graphHopper('6e9c4e7d-8d3d-4894-bc53-454ac1ff13d1', {urlParameters: {vehicle: 'foot'}}),
+    createMarker: function() { return null; }
+  }).addTo(map);
+
+</script>
+  
 </html>

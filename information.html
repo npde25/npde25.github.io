@@ -105,29 +105,4 @@
 
 </body>
 
-<script>
-  var map = L.map('map').setView([55.9235392,-3.175], 15);
-
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-  }).addTo(map);
-
-  L.marker([55.9216819,-3.1736698]).addTo(map)
-      .bindPopup('JCMB');
-
-  L.marker([55.9235392,-3.176165]).addTo(map)
-      .bindPopup('Joseph Black Building');
-  
-  L.Routing.control({
-    waypoints: [
-      L.latLng(55.921875, -3.17425),
-      L.latLng(55.924, -3.176165)
-    ],
-    show: false,
-    router: L.Routing.graphHopper('6e9c4e7d-8d3d-4894-bc53-454ac1ff13d1', {urlParameters: {vehicle: 'foot'}}),
-    createMarker: function() { return null; }
-  }).addTo(map);
-
-</script>
-
 </html>
